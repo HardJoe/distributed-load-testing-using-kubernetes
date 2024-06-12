@@ -1,4 +1,4 @@
-# Copyright 2015 Google Inc. All rights reserved.
+# Copyright 2022 Google Inc. All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -37,11 +37,7 @@ spec:
               value: master
             - name: TARGET_HOST
               value: https://doggo-api-lufcb74hja-uc.a.run.app
-          ports:
             - name: loc-master-web
-              containerPort: 8089
-              protocol: TCP
-            - name: loc-master-p1
               containerPort: 5557
               protocol: TCP
             - name: loc-master-p2
