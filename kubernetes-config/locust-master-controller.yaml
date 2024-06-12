@@ -12,9 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
-apiVersion: "apps/v1"
-kind: "Deployment"
+apiVersion: 'apps/v1'
+kind: 'Deployment'
 metadata:
   name: locust-master
   labels:
@@ -30,13 +29,14 @@ spec:
         app: locust-master
     spec:
       containers:
-        - name: locust-master
-          image: gcr.io/[PROJECT_ID]/locust-tasks:latest
+        - name: locust
+          image: locust-task:v1.0
+          imagePullPolicy: IfNotPresent
           env:
             - name: LOCUST_MODE
               value: master
             - name: TARGET_HOST
-              value: https://[TARGET_HOST]
+              value: https://doggo-api-lufcb74hja-uc.a.run.app
           ports:
             - name: loc-master-web
               containerPort: 8089

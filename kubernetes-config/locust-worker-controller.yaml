@@ -12,8 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-apiVersion: "apps/v1"
-kind: "Deployment"
+apiVersion: 'apps/v1'
+kind: 'Deployment'
 metadata:
   name: locust-worker
   labels:
@@ -29,12 +29,13 @@ spec:
         app: locust-worker
     spec:
       containers:
-        - name: locust-worker
-          image: gcr.io/[PROJECT_ID]/locust-tasks:latest
+        - name: locust
+          image: locust-task:v1.0
+          imagePullPolicy: IfNotPresent
           env:
             - name: LOCUST_MODE
               value: worker
             - name: LOCUST_MASTER
               value: locust-master
             - name: TARGET_HOST
-              value: https://[TARGET_HOST]
+              value: https://doggo-api-lufcb74hja-uc.a.run.app
